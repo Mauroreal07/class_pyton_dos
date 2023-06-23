@@ -1,0 +1,35 @@
+class CuentaBancaria:
+    def __init__(self, titular, saldo):
+        self.titular = titular
+        self.saldo = saldo
+
+    def depositar(self, deposito):
+        """Depósito que se realiza en la cuenta."""
+        self.saldo += deposito
+
+    def retirar(self, retiro):
+        """Retirar dinero de la cuenta."""
+        if self.saldo >= retiro:
+            self.saldo -= retiro
+            return self.saldo
+        else:
+            print("No hay suficiente dinero para retirar.")
+            return None
+
+    def mostrar(self):
+        """Mostrar dinero en la cuenta."""
+        print(f"El dinero actual es: {self.saldo}")
+
+
+    def mostrar_titular(self):
+        """Mostrar el nombre del titular."""
+        print(f"Titular de la cuenta: {self.titular}")
+
+
+persona_1 = CuentaBancaria("", 5000)
+persona_1.mostrar_titular()
+persona_1.mostrar()
+persona_1.depositar(1200)
+persona_1.mostrar()
+persona_1.retirar(800)
+persona_1.mostrar()
